@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Services Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .slider-container {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .services-header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .services-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .services-slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 100%;
+        }
+
+        .service-card {
+            min-width: 25%;
+            height: 500px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            color: white;
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .card-content {
+            transform: translateY(-10px);
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-tag {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .service-tag:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .service-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            max-width: 280px;
+        }
+
+        .expand-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .service-card:hover .expand-icon {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.1) rotate(45deg);
+        }
+
+        .navigation-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .prev-btn, .next-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .prev-btn {
+            left: -30px;
+        }
+
+        .next-btn {
+            right: -30px;
+        }
+
+        .slider-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        .indicator-dot:hover {
+            background: rgba(255,255,255,0.7);
+        }
+
+        /* Service backgrounds */
+        .balcony-garden {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%2334495e" width="400" height="300"/><circle fill="%232ecc71" cx="100" cy="150" r="30"/><circle fill="%2327ae60" cx="300" cy="100" r="40"/><rect fill="%236c5ce7" x="150" y="200" width="100" height="80"/></svg>');
+        }
+
+        .seasonal-planting {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23e67e22" width="400" height="300"/><circle fill="%23e74c3c" cx="120" cy="100" r="25"/><circle fill="%23f39c12" cx="280" cy="150" r="35"/><rect fill="%2316a085" x="50" y="200" width="300" height="40"/></svg>');
+        }
+
+        .fountain-ponds {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%233498db" width="400" height="300"/><circle fill="%232980b9" cx="200" cy="150" r="60"/><circle fill="%2374b9ff" cx="200" cy="150" r="30"/></svg>');
+        }
+
+        .garden-clearance {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%2327ae60" width="400" height="300"/><rect fill="%232ecc71" x="50" y="50" width="80" height="200"/><rect fill="%2355a3ff" x="270" y="100" width="80" height="150"/></svg>');
+        }
+
+        .outdoor-lighting {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f39c12" width="400" height="300"/><circle fill="%23f1c40f" cx="200" cy="100" r="40"/><rect fill="%23e67e22" x="180" y="140" width="40" height="80"/></svg>');
+        }
+
+        .plant-care {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23a29bfe" width="400" height="300"/><circle fill="%236c5ce7" cx="150" cy="120" r="30"/><circle fill="%23fd79a8" cx="250" cy="180" r="35"/></svg>');
+        }
+
+        .hardscaping {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%2395a5a6" width="400" height="300"/><rect fill="%23636e72" x="100" y="100" width="200" height="20"/><rect fill="%23636e72" x="100" y="140" width="200" height="20"/><rect fill="%23636e72" x="100" y="180" width="200" height="20"/></svg>');
+        }
+
+        .consultation {
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23fd79a8" width="400" height="300"/><circle fill="%23e84393" cx="200" cy="150" r="50"/><rect fill="%23fdcb6e" x="170" y="220" width="60" height="40"/></svg>');
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .service-card {
+                min-width: 33.333%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                min-width: 50%;
+                height: 400px;
+            }
+            
+            .service-title {
+                font-size: 2rem;
+            }
+            
+            .services-header h1 {
+                font-size: 2rem;
+            }
+            
+            .prev-btn, .next-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .prev-btn {
+                left: 10px;
+            }
+            
+            .next-btn {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                min-width: 100%;
+                height: 350px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .service-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="services-header">
+            <h1>Garden Services</h1>
+            <p>Transform your outdoor space with our expert services</p>
+        </div>
+        
+        <div class="slider-wrapper">
+            <div class="services-slider" id="servicesSlider">
+                <!-- Service Card 1 -->
+                <div class="service-card balcony-garden">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Home</span>
+                            <span class="service-tag">Garden</span>
+                            <span class="service-tag">Landscape Design</span>
+                            <span class="service-tag">Expert</span>
+                        </div>
+                        <h2 class="service-title">BALCONY<br>GARDEN</h2>
+                        <p class="service-description">Turn your balcony into a lush escape where fresh air, vibrant greenery, and serene moments come to life.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card seasonal-planting">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Seasonal</span>
+                            <span class="service-tag">Planting</span>
+                            <span class="service-tag">Maintenance</span>
+                        </div>
+                        <h2 class="service-title">SEASONAL<br>BULB<br>PLANTING</h2>
+                        <p class="service-description">Bring your garden to life with vibrant blooms that change with the seasons.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card fountain-ponds">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Water Features</span>
+                            <span class="service-tag">Design</span>
+                        </div>
+                        <h2 class="service-title">FOUNTAIN &<br>PONDS</h2>
+                        <p class="service-description">Add timeless tranquility to your space with custom water features and ponds.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card garden-clearance">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Maintenance</span>
+                            <span class="service-tag">Cleanup</span>
+                        </div>
+                        <h2 class="service-title">GARDEN<br>CLEARANCE</h2>
+                        <p class="service-description">Refresh and renew your outdoor space with our comprehensive clearance services.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card outdoor-lighting">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Lighting</span>
+                            <span class="service-tag">Ambiance</span>
+                        </div>
+                        <h2 class="service-title">OUTDOOR<br>LIGHTING</h2>
+                        <p class="service-description">Illuminate your garden with stunning lighting solutions that enhance beauty and safety.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card plant-care">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Care</span>
+                            <span class="service-tag">Health</span>
+                        </div>
+                        <h2 class="service-title">PLANT<br>CARE</h2>
+                        <p class="service-description">Expert plant care services to keep your garden thriving year-round.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 7 -->
+                <div class="service-card hardscaping">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Hardscape</span>
+                            <span class="service-tag">Construction</span>
+                        </div>
+                        <h2 class="service-title">HARDSCAPING</h2>
+                        <p class="service-description">Create stunning stone paths, patios, and structural elements for your garden.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 8 -->
+                <div class="service-card consultation">
+                    <div class="expand-icon">↗</div>
+                    <div class="card-content">
+                        <div class="service-tags">
+                            <span class="service-tag">Consultation</span>
+                            <span class="service-tag">Planning</span>
+                        </div>
+                        <h2 class="service-title">GARDEN<br>CONSULTATION</h2>
+                        <p class="service-description">Get expert advice and planning for your dream garden transformation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="navigation-controls">
+                <button class="prev-btn" id="prevBtn">‹</button>
+            </div>
+            <div class="navigation-controls next-btn" style="right: 0;">
+                <button class="next-btn" id="nextBtn">›</button>
+            </div>
+        </div>
+
+        <!-- Slider Indicators -->
+        <div class="slider-indicators" id="sliderIndicators"></div>
+    </div>
+
+    <script>
+        class GardenServicesSlider {
+            constructor() {
+                this.slider = document.getElementById('servicesSlider');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicators = document.getElementById('sliderIndicators');
+                this.cards = document.querySelectorAll('.service-card');
+                
+                this.currentIndex = 0;
+                this.cardsPerView = this.getCardsPerView();
+                this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+                
+                this.init();
+            }
+
+            init() {
+                this.createIndicators();
+                this.bindEvents();
+                this.updateSlider();
+                this.handleResize();
+            }
+
+            getCardsPerView() {
+                if (window.innerWidth <= 480) return 1;
+                if (window.innerWidth <= 768) return 2;
+                if (window.innerWidth <= 1200) return 3;
+                return 4;
+            }
+
+            createIndicators() {
+                this.indicators.innerHTML = '';
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.indicators.appendChild(dot);
+                }
+            }
+
+            bindEvents() {
+                this.prevBtn.addEventListener('click', () => this.previousSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Touch/swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                this.slider.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                this.slider.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.previousSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+            }
+
+            handleSwipe(startX, endX) {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.previousSlide();
+                    }
+                }
+            }
+
+            handleResize() {
+                window.addEventListener('resize', () => {
+                    const newCardsPerView = this.getCardsPerView();
+                    if (newCardsPerView !== this.cardsPerView) {
+                        this.cardsPerView = newCardsPerView;
+                        this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+                        this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+                        this.createIndicators();
+                        this.updateSlider();
+                    }
+                });
+            }
+
+            nextSlide() {
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            previousSlide() {
+                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateSlider();
+            }
+
+            updateSlider() {
+                const translateX = -this.currentIndex * (100 / this.cardsPerView);
+                this.slider.style.transform = `translateX(${translateX}%)`;
+                
+                // Update indicators
+                const dots = this.indicators.querySelectorAll('.indicator-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+
+                // Add animation to cards
+                this.cards.forEach((card, index) => {
+                    const isVisible = index >= this.currentIndex * this.cardsPerView && 
+                                    index < (this.currentIndex + 1) * this.cardsPerView;
+                    card.style.opacity = isVisible ? '1' : '0.7';
+                    card.style.transform = isVisible ? 'scale(1)' : 'scale(0.95)';
+                });
+            }
+        }
+
+        // Initialize the slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new GardenServicesSlider();
+        });
+
+        // Add smooth hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.zIndex = '5';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>

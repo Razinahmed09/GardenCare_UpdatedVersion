@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine Rockeries Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .alpine-services-wrapper {
+            background: linear-gradient(135deg, #2d5016 0%, #1a3009 50%, #0f1a05 100%);
+            padding: 100px 20px;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .alpine-services-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px, 200px 200px;
+            pointer-events: none;
+            animation: twinkle 20s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .alpine-services-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(125, 211, 252, 0.1), transparent);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .alpine-services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .alpine-services-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .alpine-services-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .alpine-services-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .alpine-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .alpine-service-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .alpine-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #2d5016, #4ade80, #2d5016);
+            transition: all 0.5s ease;
+        }
+
+        .alpine-service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.05) 0%, rgba(74, 222, 128, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .alpine-service-card:hover::before {
+            left: 0;
+        }
+
+        .alpine-service-card:hover::after {
+            opacity: 1;
+        }
+
+        .alpine-service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .alpine-service-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #2d5016 0%, #4ade80 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 10px 30px rgba(45, 80, 22, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alpine-service-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(-45deg);
+            transition: transform 0.6s ease;
+        }
+
+        .alpine-service-card:hover .alpine-service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 15px 40px rgba(45, 80, 22, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .alpine-service-card:hover .alpine-service-icon::before {
+            transform: rotate(-45deg) translateX(200%);
+        }
+
+        .alpine-service-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a3009;
+            margin-bottom: 18px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .alpine-service-card:hover .alpine-service-name {
+            color: #2d5016;
+        }
+
+        .alpine-service-description {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .alpine-service-card:hover .alpine-service-description {
+            color: #2d3748;
+        }
+
+        .alpine-services-cta {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .alpine-cta-button {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: #2d5016;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alpine-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .alpine-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .alpine-cta-button:hover {
+            background: linear-gradient(135deg, #2d5016 0%, #4ade80 100%);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .alpine-cta-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .alpine-cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .alpine-services-wrapper {
+                padding: 80px 15px;
+            }
+            
+            .alpine-services-title {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .alpine-services-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .alpine-services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 50px;
+            }
+            
+            .alpine-service-card {
+                padding: 30px 25px;
+            }
+            
+            .alpine-service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .alpine-service-name {
+                font-size: 1.2rem;
+            }
+            
+            .alpine-service-description {
+                font-size: 0.95rem;
+            }
+            
+            .alpine-cta-button {
+                padding: 15px 40px;
+                font-size: 1rem;
+            }
+        }
+
+        .alpine-fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .alpine-fade-in.alpine-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating animation for service cards */
+        .alpine-service-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Stagger the floating animation */
+        .alpine-service-card:nth-child(2n) {
+            animation-delay: -2s;
+        }
+
+        .alpine-service-card:nth-child(3n) {
+            animation-delay: -4s;
+        }
+    </style>
+</head>
+<body>
+    <section class="alpine-services-wrapper">
+        <div class="alpine-services-container">
+            <div class="alpine-services-header alpine-fade-in">
+                <h2 class="alpine-services-title">Our Premium Services</h2>
+                <p class="alpine-services-subtitle">
+                    From arboricultural expertise to stunning garden designs, we offer comprehensive landscaping solutions tailored to transform your outdoor spaces into beautiful, thriving environments.
+                </p>
+            </div>
+
+            <div class="alpine-services-grid">
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Arboricultural Services</h3>
+                    <p class="alpine-service-description">Professional tree care including crowning, coppicing, and pollarding to maintain healthy, beautiful trees in your landscape.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Balcony Gardens</h3>
+                    <p class="alpine-service-description">Transform your balcony into a green oasis with custom-designed container gardens and vertical planting solutions.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Seasonal Bedding & Bulbs</h3>
+                    <p class="alpine-service-description">Vibrant seasonal displays and strategic bulb planting to ensure year-round color and interest in your garden.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-cactus"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Cacti & Succulents</h3>
+                    <p class="alpine-service-description">Stunning indoor displays and drought-resistant outdoor arrangements featuring diverse cacti and succulent varieties.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Fencing & Structures</h3>
+                    <p class="alpine-service-description">Quality fencing solutions and garden structures including gazebos to define and enhance your outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-fountain"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Water Features</h3>
+                    <p class="alpine-service-description">Beautiful fountains and ponds, both indoor and outdoor, to add tranquility and natural beauty to your environment.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Garden Clearance & Maintenance</h3>
+                    <p class="alpine-service-description">Complete garden clearance services and ongoing maintenance to keep your outdoor spaces pristine year-round.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Garden Design & Landscaping</h3>
+                    <p class="alpine-service-description">Professional garden design and layout services, plus expert landscaping to bring your vision to life.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Herb & Kitchen Gardens</h3>
+                    <p class="alpine-service-description">Functional and beautiful herb gardens and kitchen gardens to provide fresh ingredients right at your doorstep.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Indoor Plant Displays</h3>
+                    <p class="alpine-service-description">Professional indoor plant arrangements for foyers, offices, waiting areas, and rest areas to enhance any interior space.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-torii-gate"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Japanese Garden Features</h3>
+                    <p class="alpine-service-description">Authentic Japanese garden elements and miniature gardens to create peaceful, zen-inspired outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Alpine Rockeries</h3>
+                    <p class="alpine-service-description">Stunning outdoor rockeries and miniature indoor rock gardens featuring carefully selected alpine plants and stone arrangements.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Orchid Growing</h3>
+                    <p class="alpine-service-description">Specialized orchid cultivation and display services for these exotic and elegant flowering plants.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-grass"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Turf Laying</h3>
+                    <p class="alpine-service-description">Professional turf installation to create perfect lawns and grassed areas for your outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-axe"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Tree Felling & Stump Extraction</h3>
+                    <p class="alpine-service-description">Safe and efficient tree removal and stump extraction services to clear and prepare your landscape.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Window Boxes</h3>
+                    <p class="alpine-service-description">Charming window box displays to add color and life to your home's exterior and create curb appeal.</p>
+                </div>
+            </div>
+
+            <div class="alpine-services-cta alpine-fade-in">
+                <a href="#contact" class="alpine-cta-button">
+                    <i class="fas fa-calendar-alt"></i>
+                    Get Your Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced fade in animation on scroll
+        const alpineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('alpine-visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.alpine-fade-in').forEach(el => {
+            alpineObserver.observe(el);
+        });
+
+        // Add staggered animation delay for service cards
+        document.querySelectorAll('.alpine-service-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.05}s`;
+            card.style.animationDelay = `${(index * 0.1) - 2}s`;
+        });
+
+        // Enhanced card click interaction with ripple effect
+        document.querySelectorAll('.alpine-service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: radial-gradient(circle, rgba(45, 80, 22, 0.1) 0%, transparent 70%);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Add CSS animation keyframes if not already added
+                if (!document.querySelector('#ripple-keyframes')) {
+                    const style = document.createElement('style');
+                    style.id = 'ripple-keyframes';
+                    style.textContent = `
+                        @keyframes ripple {
+                            to {
+                                transform: scale(2);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                // Remove ripple after animation
+                setTimeout(() => {
+                    if (ripple.parentNode) {
+                        ripple.parentNode.removeChild(ripple);
+                    }
+                }, 600);
+                
+                // Card pulse effect
+                this.style.transform = 'translateY(-12px) scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Enhanced smooth scroll for CTA button with easing
+        document.querySelector('.alpine-cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add button press animation
+            this.style.transform = 'translateY(-3px) scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // Scroll to contact section (you can modify this)
+            console.log('Contact button clicked - integrate with your contact section');
+            
+            // Optional: Add a subtle page shake effect
+            document.body.style.animation = 'shake 0.3s ease-in-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 300);
+        });
+
+        // Add shake animation keyframes
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-2px); }
+                75% { transform: translateX(2px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
+
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const wrapper = document.querySelector('.alpine-services-wrapper');
+            if (wrapper) {
+                wrapper.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

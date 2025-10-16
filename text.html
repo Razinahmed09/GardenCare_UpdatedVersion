@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Services Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cs_height_100 { height: 100px; }
+        .cs_height_64 { height: 64px; }
+
+        .cs_card_1_group {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .service-card {
+            flex: 0 0 25%; /* Default: 4 cards per view */
+            padding: 0 10px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cs_card_top {
+            padding: 20px;
+        }
+
+        .cs_card_tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cs_card_tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cs_card_bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        .cs_card_title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .cs_card_subtitle {
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .cs_arrow_btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cs_arrow_btn:hover {
+            transform: scale(1.1);
+        }
+
+        .navigation-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .navigation-controls.next-btn {
+            right: -50px;
+        }
+
+        .navigation-controls:not(.next-btn) {
+            left: -50px;
+        }
+
+        .prev-btn, .next-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: #333;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .slider-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: #333;
+            transform: scale(1.2);
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 991px) {
+            .service-card {
+                flex: 0 0 33.333%; /* 3 cards per view on tablets */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .service-card {
+                flex: 0 0 50%; /* 2 cards per view on mobile */
+            }
+            
+            .cs_card_title {
+                font-size: 20px;
+            }
+            
+            .navigation-controls.next-btn {
+                right: -30px;
+            }
+
+            .navigation-controls:not(.next-btn) {
+                left: -30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                flex: 0 0 100%; /* 1 card per view on small mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cs_height_100"></div>
+        <div class="container">
+            <div class="cs_height_64"></div>
+            <div class="cs_card_1_group slider-wrapper">
+                <div class="services-slider" id="servicesSlider">
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">BALCONY GARDEN</h2>
+                            <p class="cs_card_subtitle mb-0">Turn your balcony into a lush escape where fresh air, vibrant greenery, and serene moments come to life.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">SEASONAL BULB PLANTING</h2>
+                            <p class="cs_card_subtitle mb-0">Bring your garden to life with vibrant blooms that rise with the seasons carefully planted bulbs for year round color and charm.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">FOUNTAIN & PONDS</h2>
+                            <p class="cs_card_subtitle mb-0">Add timeless tranquility to your space with custom fountains and ponds where flowing water meets natural beauty.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">GARDEN CLEARANCE</h2>
+                            <p class="cs_card_subtitle mb-0">Refresh and renew your outdoor space with our thorough garden clearance making way for new growth and vibrant possibilities.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">LAWN MAINTENANCE</h2>
+                            <p class="cs_card_subtitle mb-0">Keep your lawn pristine with our professional maintenance services ensuring healthy, beautiful grass year-round.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500');">
+                        <div class="cs_card_top">
+                            <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div>
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title">TREE PRUNING</h2>
+                            <p class="cs_card_subtitle mb-0">Expert tree pruning services to maintain healthy growth and enhance the natural beauty of your landscape.</p>
+                        </div>
+                        <a href="#" class="cs_arrow_btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="prev-btn" id="prevBtn">‹</button>
+                </div>
+                <div class="navigation-controls next-btn">
+                    <button class="next-btn" id="nextBtn">›</button>
+                </div>
+            </div>
+
+            <div class="slider-indicators" id="sliderIndicators"></div>
+        </div>
+        <div class="cs_height_100"></div>
+    </section>
+
+    <script>
+        class GardenServicesSlider {
+    constructor() {
+        this.slider = document.getElementById('servicesSlider');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.indicators = document.getElementById('sliderIndicators');
+        this.cards = document.querySelectorAll('.service-card');
+        
+        this.currentIndex = 0;
+        this.cardsPerView = this.getCardsPerView();
+        this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+        
+        this.init();
+    }
+
+    init() {
+        this.setupSliderStyles();
+        this.hideExtraCards();
+        this.createIndicators();
+        this.bindEvents();
+        this.updateSlider();
+        this.handleResize();
+    }
+
+    getCardsPerView() {
+        // Desktop: 4 cards, Tablet (991px and below): 3 cards, Mobile: 2 cards
+        if (window.innerWidth <= 768) return 2;  // Mobile
+        if (window.innerWidth <= 991) return 3;  // Tablet
+        return 4; // Desktop
+    }
+
+    setupSliderStyles() {
+        // Set up the slider container styles
+        this.slider.style.display = 'flex';
+        this.slider.style.transition = 'transform 0.3s ease-in-out';
+        this.slider.style.width = `${(this.cards.length / this.cardsPerView) * 100}%`;
+        
+        // Set up individual card styles
+        this.cards.forEach(card => {
+            card.style.flex = `0 0 ${100 / this.cards.length}%`;
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+    }
+
+    hideExtraCards() {
+        // Hide all cards initially
+        this.cards.forEach((card, index) => {
+            if (index >= this.cardsPerView) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    showCardsForCurrentSlide() {
+        const startIndex = this.currentIndex * this.cardsPerView;
+        const endIndex = startIndex + this.cardsPerView;
+        
+        this.cards.forEach((card, index) => {
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'block';
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    createIndicators() {
+        this.indicators.innerHTML = '';
+        for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => this.goToSlide(i));
+            this.indicators.appendChild(dot);
+        }
+    }
+
+    bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.previousSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        this.slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        this.slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.previousSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
+    }
+
+    handleSwipe(startX, endX) {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                this.nextSlide();
+            } else {
+                this.previousSlide();
+            }
+        }
+    }
+
+    handleResize() {
+        window.addEventListener('resize', () => {
+            const newCardsPerView = this.getCardsPerView();
+            if (newCardsPerView !== this.cardsPerView) {
+                this.cardsPerView = newCardsPerView;
+                this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+                this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+                this.setupSliderStyles();
+                this.createIndicators();
+                this.updateSlider();
+            }
+        });
+    }
+
+    nextSlide() {
+        if (this.currentIndex < this.totalSlides - 1) {
+            this.currentIndex++;
+        } else {
+            this.currentIndex = 0; // Loop back to first slide
+        }
+        this.updateSlider();
+    }
+
+    previousSlide() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+        } else {
+            this.currentIndex = this.totalSlides - 1; // Loop to last slide
+        }
+        this.updateSlider();
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateSlider();
+    }
+
+    updateSlider() {
+        // Show cards for current slide
+        this.showCardsForCurrentSlide();
+        
+        // Update indicators
+        const dots = this.indicators.querySelectorAll('.indicator-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+
+        // Update navigation button states
+        this.updateNavigationButtons();
+    }
+
+    updateNavigationButtons() {
+        // Optional: Disable buttons at the ends (remove if you want infinite loop)
+        // this.prevBtn.disabled = this.currentIndex === 0;
+        // this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
+    }
+}
+
+// Initialize the slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new GardenServicesSlider();
+});
+
+// Add smooth hover effects for service cards
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (this.style.display !== 'none') {
+                this.style.transform = 'scale(1.02)';
+                this.style.zIndex = '5';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (this.style.display !== 'none') {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '1';
+            }
+        });
+    });
+});
+    </script>
+</body>
+</html>

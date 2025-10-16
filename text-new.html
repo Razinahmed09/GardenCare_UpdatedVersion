@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microgreens Product Modal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .mg-modal * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mg-demo-body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #235130 0%, #2d6e3b 50%, #1a3d24 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .mg-demo-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(35, 81, 48, 0.8) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .mg-trigger-btn {
+            background: linear-gradient(135deg, #235130 0%, #2d6e3b 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 8px 32px rgba(35, 81, 48, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .mg-trigger-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .mg-trigger-btn:hover::before {
+            left: 100%;
+        }
+
+        .mg-trigger-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 15px 40px rgba(35, 81, 48, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .mg-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .mg-modal-overlay.mg-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mg-modal-container {
+            background: white;
+            border-radius: 16px;
+            max-width: 8;
+            width: 70%;
+            /* max-height: 95vh; */
+            overflow: hidden;
+            transform: scale(0.7) translateY(100px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .mg-modal-overlay.mg-active .mg-modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .mg-modal-header {
+            position: relative;
+            background: linear-gradient(135deg, #235130 0%, #2d6e3b 100%);
+            padding: 30px 40px;
+            color: white;
+        }
+
+        .mg-modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            
+            opacity: 0.1;
+        }
+
+        .mg-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #2B6A39;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(0 0 0);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.mg-close-btn:hover {
+    background: #053f12;
+    transform: rotate(90deg) scale(1.1);
+    border-color: rgb(12 12 12);
+}
+
+        .mg-modal-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .mg-modal-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .mg-modal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: white;
+        }
+
+        .mg-product-image-section {
+            background: linear-gradient(135deg, #f8fffe 0%, #f0f9f4 100%);
+            padding: 50px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mg-product-image-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 120%;
+            height: 180%;
+            background: radial-gradient(circle, rgba(35, 81, 48, 0.05) 0%, transparent 70%);
+            animation: mg-rotate 20s linear infinite;
+        }
+
+        @keyframes mg-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .mg-product-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                0 20px 40px rgba(35, 81, 48, 0.15),
+                0 0 0 1px rgba(35, 81, 48, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .mg-product-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 
+                0 30px 60px rgba(35, 81, 48, 0.25),
+                0 0 0 1px rgba(35, 81, 48, 0.2);
+        }
+
+        .mg-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mg-product-info {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+            position: relative;
+        }
+
+        .mg-product-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #235130;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .mg-product-price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #235130;
+            margin-bottom: 20px;
+        }
+
+        .mg-payment-info {
+            
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #235130;
+            border-left: 4px solid #235130;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+
+
+        .mg-form-group {
+            margin-bottom: 24px;
+        }
+
+        .mg-form-label {
+            display: block;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mg-form-select, .mg-quantity-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+            background: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+
+        .mg-form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23235130' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 14px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            cursor: pointer;
+        }
+
+        .mg-form-select:focus, .mg-quantity-input:focus {
+            outline: none;
+            border-color: #235130;
+            box-shadow: 0 0 0 4px rgba(35, 81, 48, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .mg-quantity-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mg-quantity-input {
+            width: 80px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mg-quantity-btn {
+            width: 44px;
+            height: 44px;
+            border: 2px solid #235130;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #235130;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mg-quantity-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #235130;
+            transform: scale(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50%;
+        }
+
+        .mg-quantity-btn:hover::before {
+            transform: scale(1);
+        }
+
+        .mg-quantity-btn:hover {
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(35, 81, 48, 0.3);
+        }
+
+        .mg-quantity-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        
+
+        .mg-view-details-btn {
+            background: none;
+            border: none;
+            color: #235130;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        .mg-view-details-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #235130;
+            transition: width 0.3s ease;
+        }
+
+        .mg-view-details-btn:hover::after {
+            width: 100%;
+        }
+
+        .mg-view-details-btn:hover {
+            color: #1a3d24;
+        }
+
+        .mg-action-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        .mg-add-to-cart-btn, .mg-buy-now-btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mg-add-to-cart-btn {
+            background: linear-gradient(135deg, #235130 0%, #2d6e3b 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(35, 81, 48, 0.3);
+        }
+
+        .mg-buy-now-btn {
+            background: white;
+            color: #235130;
+            border: 2px solid #235130;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .mg-add-to-cart-btn::before, .mg-buy-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .mg-add-to-cart-btn:hover::before, .mg-buy-now-btn:hover::before {
+            left: 100%;
+        }
+
+        .mg-add-to-cart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(35, 81, 48, 0.4);
+        }
+
+        .mg-buy-now-btn:hover {
+            transform: translateY(-3px);
+            background: #235130;
+            color: white;
+            box-shadow: 0 15px 40px rgba(35, 81, 48, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .mg-modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .mg-product-image-section {
+                padding: 40px 30px;
+            }
+
+            .mg-product-image {
+                width: 220px;
+                height: 220px;
+            }
+
+            .mg-product-info {
+                padding: 40px 30px;
+            }
+
+            .mg-product-name {
+                font-size: 1.8rem;
+            }
+
+            .mg-product-price {
+                font-size: 1.5rem;
+            }
+
+            .mg-action-buttons {
+                flex-direction: column;
+            }
+
+            .mg-modal-header {
+                padding: 25px 30px;
+            }
+        }
+
+        .mg-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .mg-loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: mg-spin 1s linear infinite;
+        }
+
+        @keyframes mg-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .mg-success {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+        }
+    </style>
+</head>
+<body class="mg-demo-body">
+    <button class="mg-trigger-btn" onclick="mgOpenModal()">
+        🌱 View Fresh Microgreens
+    </button>
+
+    <div class="mg-modal-overlay" id="mgModalOverlay">
+        <div class="mg-modal-container">
+            
+            <div class="mg-modal-content">
+                <button class="mg-close-btn" onclick="mgCloseModal()">×</button>
+                <div class="mg-product-image-section">
+                    <div class="mg-product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f0f9f4'/%3E%3Cstop offset='100%25' style='stop-color:%23dcfce7'/%3E%3C/linearGradient%3E%3ClinearGradient id='cabbage1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23dc2626'/%3E%3Cstop offset='50%25' style='stop-color:%23991b1b'/%3E%3Cstop offset='100%25' style='stop-color:%237f1d1d'/%3E%3C/linearGradient%3E%3ClinearGradient id='cabbage2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23b91c1c'/%3E%3Cstop offset='100%25' style='stop-color:%23991b1b'/%3E%3C/linearGradient%3E%3ClinearGradient id='stem' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f472b6'/%3E%3Cstop offset='100%25' style='stop-color:%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3C!-- Microgreen stems --%3E%3Crect x='180' y='280' width='8' height='60' fill='url(%23stem)' rx='4'/%3E%3Crect x='195' y='275' width='6' height='65' fill='url(%23stem)' rx='3'/%3E%3Crect x='205' y='285' width='7' height='55' fill='url(%23stem)' rx='3.5'/%3E%3Crect x='160' y='290' width='5' height='50' fill='url(%23stem)' rx='2.5'/%3E%3Crect x='220' y='278' width='9' height='62' fill='url(%23stem)' rx='4.5'/%3E%3C!-- Main cabbage leaves --%3E%3Cellipse cx='200' cy='200' rx='80' ry='60' fill='url(%23cabbage1)' transform='rotate(-15 200 200)'/%3E%3Cellipse cx='190' cy='190' rx='65' ry='50' fill='url(%23cabbage2)' transform='rotate(-20 190 190)'/%3E%3Cellipse cx='210' cy='180' rx='55' ry='40' fill='url(%23cabbage1)' transform='rotate(-10 210 180)'/%3E%3C!-- Leaf details --%3E%3Cpath d='M140 180 Q200 140 260 185 Q230 165 200 168 Q170 165 140 180' fill='%23991b1b' opacity='0.8'/%3E%3Cpath d='M150 200 Q200 170 250 205 Q225 190 200 192 Q175 190 150 200' fill='%23b91c1c' opacity='0.6'/%3E%3C!-- Leaf veins --%3E%3Cpath d='M160 185 Q200 160 240 190' stroke='%237f1d1d' stroke-width='2' fill='none' opacity='0.7'/%3E%3Cpath d='M165 195 Q200 175 235 200' stroke='%237f1d1d' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3C!-- Small accent leaves --%3E%3Cellipse cx='160' cy='160' rx='25' ry='18' fill='url(%23cabbage2)' transform='rotate(-30 160 160)' opacity='0.9'/%3E%3Cellipse cx='240' cy='170' rx='22' ry='16' fill='url(%23cabbage1)' transform='rotate(20 240 170)' opacity='0.8'/%3E%3C!-- Decorative elements --%3E%3Ccircle cx='120' cy='320' r='3' fill='%23235130' opacity='0.3'/%3E%3Ccircle cx='280' cy='310' r='2' fill='%23235130' opacity='0.4'/%3E%3Ccircle cx='300' cy='340' r='4' fill='%23235130' opacity='0.2'/%3E%3C/svg%3E" alt="Red Acre Cabbage Microgreens">
+                    </div>
+                </div>
+                <div class="mg-product-info">
+                    <div>
+                        <h2 class="mg-product-name">Red Acre Cabbage</h2>
+                        <div class="mg-product-price">C$6.00</div>
+                        <!-- <div class="mg-payment-info">
+                            <strong>4 interest-free payments</strong> of C$1.50 with <strong>Afterpay</strong>
+                        </div> -->
+
+                        <div class="mg-form-group">
+                            <label class="mg-form-label">Weight Selection *</label>
+                            <select class="mg-form-select" id="mgWeightSelect">
+                                <option value="80g">80g </option>
+                                <option value="100g">100g </option>
+                                <option value="150g">150g </option>
+                                <option value="200g">200g </option>
+                            </select>
+                        </div>
+
+                        <div class="mg-form-group">
+                            <label class="mg-form-label">Quantity *</label>
+                            <div class="mg-quantity-container">
+                                <button class="mg-quantity-btn" onclick="mgDecreaseQuantity()">
+                                    <span>−</span>
+                                </button>
+                                <input type="number" class="mg-quantity-input" id="mgQuantityInput" value="1" min="1" max="99">
+                                <button class="mg-quantity-btn" onclick="mgIncreaseQuantity()">
+                                    <span>+</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mg-form-group">
+                            <p class="mg-form-label">Special Instructions</p>
+                            
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="mg-action-buttons">
+                        <button class="mg-add-to-cart-btn" onclick="mgAddToCart()">Add to Cart</button>
+                        
+                    </div>
+                    <div class="mg-payment-info">
+                            <strong>View More Details</strong>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mgOpenModal() {
+            const overlay = document.getElementById('mgModalOverlay');
+            overlay.classList.add('mg-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function mgCloseModal() {
+            const overlay = document.getElementById('mgModalOverlay');
+            overlay.classList.remove('mg-active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function mgIncreaseQuantity() {
+            const input = document.getElementById('mgQuantityInput');
+            const currentValue = parseInt(input.value);
+            if (currentValue < 99) {
+                input.value = currentValue + 1;
+                mgAnimateQuantityChange();
+            }
+        }
+
+        function mgDecreaseQuantity() {
+            const input = document.getElementById('mgQuantityInput');
+            const currentValue = parseInt(input.value);
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+                mgAnimateQuantityChange();
+            }
+        }
+
+        function mgAnimateQuantityChange() {
+            const input = document.getElementById('mgQuantityInput');
+            input.style.transform = 'scale(1.15)';
+            input.style.borderColor = '#235130';
+            setTimeout(() => {
+                input.style.transform = 'scale(1)';
+                input.style.borderColor = '#e5e7eb';
+            }, 200);
+        }
+
+        function mgAddToCart() {
+            const button = document.querySelector('.mg-add-to-cart-btn');
+            const originalText = button.textContent;
+            
+            button.classList.add('mg-loading');
+            button.textContent = 'Adding...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.classList.remove('mg-loading');
+                button.classList.add('mg-success');
+                button.textContent = '✓ Added Successfully!';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('mg-success');
+                    button.disabled = false;
+                }, 2500);
+            }, 1200);
+        }
+
+        function mgBuyNow() {
+            const button = document.querySelector('.mg-buy-now-btn');
+            const originalText = button.textContent;
+            
+            button.classList.add('mg-loading');
+            button.textContent = 'Processing...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.classList.remove('mg-loading');
+                button.textContent = 'Redirecting to Checkout...';
+                button.style.background = '#235130';
+                button.style.color = 'white';
+                
+                setTimeout(() => {
+                    // Simulate redirect
+                    alert('🌱 Redirecting to secure checkout...');
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.style.color = '';
+                    button.disabled = false;
+                }, 1500);
+            }, 1000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('mgModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                mgCloseModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                mgCloseModal();
+            }
+        });
+
+        
+        // Quantity input validation
+        document.getElementById('mgQuantityInput').addEventListener('input', function() {
+            let value = parseInt(this.value);
+            if (isNaN(value) || value < 1) {
+                this.value = 1;
+            } else if (value > 99) {
+                this.value = 99;
+            }
+        });
+
+        // Add subtle hover effects to the product image
+        document.querySelector('.mg-product-image').addEventListener('mouseenter', function() {
+            this.style.filter = 'brightness(1.05) saturate(1.1)';
+        });
+
+        document.querySelector('.mg-product-image').addEventListener('mouseleave', function() {
+            this.style.filter = 'brightness(1) saturate(1)';
+        });
+    </script>
+</body>
+</html>

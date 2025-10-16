@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Laralink">
+    <!-- Favicon Icon -->
+    <link rel="icon" href="assets/img/favicon.png">
+    <!-- Site Title -->
+    <title>Garden Care</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+        <div class="cs_preloader_in">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="cs_preloader_text">Loading...</div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header Section -->
+    <div id="navbar-container"></div>
+    <script>
+        
+    // Load navbar
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+      });
+  
+    </script>
+    <div class="cs_header_form_wrap cs_center">
+        <div class="cs_header_form_overlay"></div>
+        <form action="#" class="cs_header_form">
+            <input type="text" class="cs_header_form_input" placeholder="Search...">
+            <button type="button" class="cs_header_form_btn cs_center">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <path d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.8 15.8332 7.91669C15.8332 3.55174 12.2815 9.15527e-05 7.91656 9.15527e-05C3.55161 9.15527e-05 0 3.5517 0 7.91666C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.1699 12.8899 14.0683L18.5773 19.7557C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7557C20.0815 19.4299 20.0815 18.9032 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91666C1.66666 4.47001 4.46996 1.66672 7.9166 1.66672C11.3632 1.66672 14.1665 4.47001 14.1665 7.91666C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z" fill="currentColor"/>
+            </g>
+            <defs>
+            <clipPath>
+            <rect width="20" height="20" fill="currentColor"/>
+            </clipPath>
+            </defs>
+          </svg>                    
+        </button>
+        </form>
+    </div>
+    <!-- End Header Section -->
+    <!-- Start Hero Section -->
+    <section class="cs_hero cs_style_1 cs_heading_bg cs_white_color">
+        <div class="container">
+            <div class="cs_hero_in">
+                <div class="cs_hero_text">
+                    <h1
+                        class="cs_hero_title cs_fs_100 cs_normal cs_mb_12 cs_white_color cs_gradient_color_1 wow fadeInUp">
+                        All your Garden <b> needs <br> from A to Z</b></h1>
+                    <p class="cs_hero_subtitle cs_fs_20 cs_mb_32 cs_opacity_7_5">Explore our tailored garden solutions
+                        from fencing and turf laying to succulent arrangements and seasonal plantings all crafted to
+                        reflect your unique style while honoring nature’s balance.</p>
+                    <div class="cs_hero_btns">
+                        <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInLeft">Our
+                            Services</a>
+                        <!-- <a href="#" class="cs_btn cs_style_2 cs_bold cs_white_color wow fadeInRight">Explore Projects</a> -->
+                    </div>
+                </div>
+                <!-- <div class="cs_hero_funfact_wrap wow fadeInRight">
+            <div class="cs_hero_funfact">
+              <h3 class="cs_fs_24 cs_bold cs_white_color mb-0">500+</h3>
+              <p class="cs_fs_20 cs_white_color cs_opacity_7_5 cs_mb_16">Satisfied Clients</p>
+              <div class="cs_circle_group">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div> -->
+                <!-- <div class="cs_hero_box wow fadeInUp">
+            <div class="cs_hero_box_icon cs_mb_29">
+              <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 0C4.93447 0 0 4.97132 0 11.0821C0 13.0939 0.895529 15.2575 0.933059 15.3488C1.22229 16.0404 1.793 17.1147 2.20453 17.7445L9.74665 29.2575C10.0553 29.7295 10.5121 30 11 30C11.4879 30 11.9447 29.7295 12.2534 29.2581L19.7961 17.7445C20.2083 17.1147 20.7784 16.0404 21.0676 15.3488C21.1051 15.2581 22 13.0945 22 11.0821C22 4.97132 17.0655 0 11 0ZM19.8744 14.8429C19.6162 15.4628 19.085 16.4622 18.7155 17.0267L11.1728 28.5404C11.0239 28.7679 10.9767 28.7679 10.8279 28.5404L3.28512 17.0267C2.91565 16.4622 2.38441 15.4622 2.12624 14.8422C2.11523 14.8155 1.29412 12.824 1.29412 11.0821C1.29412 5.69035 5.64818 1.30378 11 1.30378C16.3518 1.30378 20.7059 5.69035 20.7059 11.0821C20.7059 12.8266 19.8828 14.8233 19.8744 14.8429Z" fill="currentColor"/>
+                <path d="M11.0003 5.21578C7.78893 5.21578 5.17676 7.84811 5.17676 11.0828C5.17676 14.3175 7.78893 16.9498 11.0003 16.9498C14.2116 16.9498 16.8238 14.3175 16.8238 11.0828C16.8238 7.84811 14.2116 5.21578 11.0003 5.21578ZM11.0003 15.646C8.50329 15.646 6.47088 13.5991 6.47088 11.0828C6.47088 8.56649 8.50329 6.51956 11.0003 6.51956C13.4973 6.51956 15.5297 8.56649 15.5297 11.0828C15.5297 13.5991 13.4973 15.646 11.0003 15.646Z" fill="currentColor"/>
+              </svg>                
+            </div>
+            <h3 class="cs_hero_box_title cs_fs_24 cs_mb_12 cs_white_color">Hachioji Garden</h3>
+            <p class="cs_hero_box_subtitle mb-0 cs_opacity_7_5">Their team brought creativity, care, and true passion to every detail. I couldn’t have asked for a more beautiful transformation.</p>
+            <a href="#" class="cs_arrow_btn cs_hero_box_btn cs_center cs_heading_bg cs_white_color">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"/>
+              </svg>                
+            </a>
+          </div> -->
+            </div>
+        </div>
+        <div class="cs_hero_bg">
+            <div class="cs_slider cs_style_1">
+                <div class="cs_slider_container" data-autoplay="1" data-loop="1" data-speed="800" data-center="0"
+                    data-variable-width="0" data-slides-per-view="1">
+                    <div class="cs_slider_wrapper">
+                        <div class="cs_slide">
+
+                            <div class="cs_hero_bg_in cs_bg_filed" data-src="./assets/garden-images/bg01.jpg"></div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_hero_bg_in cs_bg_filed" data-src="./assets/garden-images/bg02.jpg"></div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_hero_bg_in cs_bg_filed" data-src="./assets/garden-images/bg03.jpg"></div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_hero_bg_in cs_bg_filed" data-src="./assets/garden-images/bg04.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="cs_pagination_1_wrap">
+            <div class="container">
+              <div class="cs_pagination_1_in">
+                <div class="cs_slider_number cs_style_1 cs_white_color cs_bold"></div>
+                <div class="cs_pagination cs_style_1"></div>
+              </div>
+            </div>
+          </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+    <!-- Start Values Section -->
+    <div class="cs_height_100 cs_height_lg_70"></div>
+    <!-- <div class="container">
+      <div class="cs_values_card cs_style_1">
+        <div class="cs_values_card_left">
+          <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">SERVICES</h3>
+        </div>
+        <div class="cs_values_card_left">
+          <ul class="cs_values cs_mp_0 cs_heading_color cs_fs_20">
+            <li>
+              <span>Landscape Design</span>
+              <span class="cs_bold">01</span>
+            </li>
+            <li>
+              <span>Indoor Garden</span>
+              <span class="cs_bold">02</span>
+            </li>
+            <li>
+              <span>Home backyard garden</span>
+              <span class="cs_bold">03</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <!-- End Values Section -->
+
+
+
+    <!-- Start Feature Section -->
+    <section class="birdseaction">
+        <!-- <div class="cs_height_100 cs_height_lg_70"></div> -->
+        <!-- <div class="birds-fst">
+            <img src="./assets/garden-images/RLosYH.gif" alt="bird">
+        </div> -->
+        <div class="birds-sec">
+            <img src="./assets/garden-images/bird3.gif" alt="bird">
+        </div>
+        <div class="container">
+            <div class="cs_section_heading cs_style_1">
+                <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInDown">WE ARE <span>DIFFERENT</span> IN EVERY WAY</h2>
+                <!-- <div class="cs_section_right">
+            <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_bg cs_white_color w-100 wow fadeInRight">Our Projects</a>
+          </div> -->
+            </div>
+            <div class="cs_height_64 cs_height_lg_50"></div>
+            <div class="row align-items-end cs_gap_y_50">
+                <div class="col-lg-4">
+                    <div class="cs_img_box cs_style_1 wow fadeInLeft">
+                        <img src="assets/garden-images/backyard.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row cs_gap_y_64">
+                        <div class="col-sm-12">
+                            <div class="cs_iconbox cs_style_1">
+
+                                <h3 class="cs_fs_24 cs_mb_12">ABOUT US</h3>
+                                <p class="mb-4 cs_fs_20">At Garden Care, we bring expert, hands on gardening services
+                                    right to your doorstep. From lawn care and pruning to full garden design, we help
+                                    your outdoor spaces thrive all year round</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row cs_gap_y_64">
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                                <h3 class="cs_fs_24 cs_mb_12">Beautiful Landscapes</h3>
+                                <p class="mb-0 cs_fs_20">From Japanese gardens to rockeries and gazebos, we design
+                                    calming spaces that reflect natural elegance.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <h3 class="cs_fs_24 cs_mb_12">Seasonal Blooms</h3>
+                                <p class="mb-0 cs_fs_20">Add color year-round with bedding plants, bulbs, succulents,
+                                    and balcony or window gardens.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                    <i class="fa-brands fa-buffer"></i>
+                                </div>
+                                <h3 class="cs_fs_24 cs_mb_12">Indoor Greenery</h3>
+                                <p class="mb-0 cs_fs_20">Liven up your interiors with indoor plants, mini gardens, and
+                                    fresh herb displays for any setting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                    <i class="fa-brands fa-ubuntu"></i>
+                                </div>
+                                <h3 class="cs_fs_24 cs_mb_12">Expert Garden Care</h3>
+                                <p class="mb-0 cs_fs_20">From tree work to fencing, turf, and ponds—we keep your garden
+                                    healthy, neat, and inviting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End Feature Section -->
+
+
+
+    <!-- Start Working Process -->
+    <!-- <section class="cs_heading_bg whitebranch">
+      <div class="branch-sec">
+        <img src="./assets/garden-images/white-leaves2-01.png" alt="">
+      </div>
+      <div class="cs_height_100 cs_height_lg_70"></div>
+      <div class="container">
+        <div class="cs_section_heading cs_style_2">  
+          <h2 class="cs_section_title cs_white_color cs_fs_80 mb-0 wow fadeInUp">CRAFTED WITH CARE, <span>INSPIRED</span> BY NATURE</h2>
+          <div class="cs_section_right">
+            <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 cs_white_color">HOW IT WORKS</h3>
+          </div>
+        </div>
+        <div class="cs_height_64 cs_height_lg_50"></div>
+        <div class="cs_card_3_wrap">
+  <div class="cs_card cs_style_3">
+    <div class="cs_card_in">
+      <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">01  | Urban Balcony Gardens</h3>
+      <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">
+        Transforming compact balconies into vibrant green retreats with carefully selected plants and smart layouts to create peaceful, refreshing outdoor spaces.
+      </p>
+    </div>
+  </div>
+  <div class="cs_card cs_style_3">
+    <div class="cs_card_in">
+      <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">02  | Seasonal Bulb Planting</h3>
+      <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">
+        Bringing gardens to life with expertly planted seasonal bulbs that ensure stunning blooms and color transitions throughout the year.
+      </p>
+    </div>
+  </div>
+  <div class="cs_card cs_style_3">
+    <div class="cs_card_in">
+      <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">03  | Custom Fountains & Ponds</h3>
+      <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">
+        Creating tranquil water features that blend elegance and nature, including bespoke fountains and ponds that enhance any garden’s ambiance.
+      </p>
+    </div>
+  </div>
+  <div class="cs_card cs_style_3">
+    <div class="cs_card_in">
+      <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">04  | Professional Garden Clearance</h3>
+      <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">
+        Clearing and renewing outdoor spaces with care, preparing gardens for new growth and fresh landscaping possibilities.
+      </p>
+    </div>
+  </div>
+ 
+  <div class="cs_section_logo"><img src="assets/garden-images/garden-new-logo.png" alt="Garden Care Logo"></div>
+</div>
+ <div class="alpine-services-cta alpine-fade-in">
+                <a href="#" class="alpine-cta-button">
+                    <i class="fas fa-calendar-alt"></i>
+                    Contact Us Now
+                </a>
+            </div>
+
+      </div>
+      <div class="cs_height_100 cs_height_lg_70"></div>
+    </section> -->
+
+    <div class="gc-main-wrapper">
+
+        <div class="gc-logo-showcase">
+            <div class="gc-accent-dots"></div>
+            <div class="gc-accent-dots"></div>
+            <div class="gc-accent-dots"></div>
+            <div class="gc-accent-dots"></div>
+
+            <div class="gc-logo-container">
+                <div class="gc-logo-frame">
+                    <div class="gc-logo-inner">
+                        <a href="tel:07881288752" class="gc-logo-placeholder">
+                            <img src="./assets/garden-images/garden-new-logo.png" alt="Garden Care Logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gc-brand-section">
+                <h1 class="gc-brand-title">Garden Care</h1>
+                <p class="gc-brand-subtitle">Premium Landscaping & Garden Services</p>
+                <div class="gc-brand-tagline">"Excellence in Every Garden"</div>
+            </div>
+        </div>
+        <div class="gc-content-section">
+            <h1>Garden Care</h1>
+            <h2>All your garden requirements</h2>
+            <div class="gc-services-list">
+                <ul>
+                    <li><a href="#">Alpine Rockeries</a></li>
+                    <li><a href="#">Arboricultural Pruning</a></li>
+                    <li><a href="#">Balcony Gardens</a></li>
+                    <li><a href="#">Barbecue building</a></li>
+                    <li><a href="#">Bedding plants for all seasons</a></li>
+                    <li><a href="#">Bonsai Plants & Gardens</a></li>
+                    <li><a href="#">Bulbs seasonal planting</a></li>
+                    <li><a href="#">Cacti (indoor) miniature rockeries</a></li>
+                    <li><a href="#">Climbers</a></li>
+                    <li><a href="#">Conifers</a></li>
+                    <li><a href="#">Crowning, Coppicing, Pollarding</a></li>
+                    <li><a href="#">Crazy paving</a></li>
+                    <li><a href="#">Decking</a></li>
+                    <li><a href="#">Drainage and Watering systems</a></li>
+                    <li><a href="#">Driveways</a></li>
+                    <li><a href="#">Dry Walls</a></li>
+                    <li><a href="#">Edging</a></li>
+                    <li><a href="#">English Country Gardens</a></li>
+                    <li><a href="#">Estimates</a></li>
+                    <li><a href="#">Fen Shui Gardens</a></li>
+                    <li><a href="#">Fencing</a></li>
+                    <li><a href="#">Flower arrangements for all occasions</a></li>
+                    <li><a href="#">Fountains</a></li>
+                    <li><a href="#">Fruit tree planting</a></li>
+                    <li><a href="#">Gates - Wrought iron, timber, gazebos</a></li>
+                    <li><a href="#">Garden clearance</a></li>
+                    <li><a href="#">Garden design & maintenance</a></li>
+                    <li><a href="#">Grafting of fruit trees</a></li>
+                    <li><a href="#">Ground cover plants</a></li>
+                    <li><a href="#">Hedges – with Conifers, holly, Privet, Yew</a></li>
+                    <li><a href="#">Herb Gardens</a></li>
+                    <li><a href="#">Herbicides</a></li>
+                    <li><a href="#">Indoor - plant displays</a></li>
+                    <li><a href="#">Japanese gardens Indoor & Outdoor</a></li>
+                    <li><a href="#">Kitchens & Layout</a></li>
+                    <li><a href="#">Lawn care, Miniature & outdoor gardens</a></li>
+                    <li><a href="#">Moss Lawns</a></li>
+                    <li><a href="#">Mulching for beds</a></li>
+                    <li><a href="#">Organic treatments</a></li>
+                    <li><a href="#">Patios</a></li>
+                    <li><a href="#">Pebbles</a></li>
+                    <li><a href="#">Plants & Seeds</a></li>
+                    <li><a href="#">Ponds constructed & installed</a></li>
+                    <li><a href="#">Quince & Questions?</a></li>
+                    <li><a href="#">Rockeries – Special and Miniature</a></li>
+                    <li><a href="#">Shrubs borders, pruning & removal</a></li>
+                    <li><a href="#">Tree Felling, Tree planting</a></li>
+                    <li><a href="#">Trellis for all purposes</a></li>
+                    <li><a href="#">Vines and creepers</a></li>
+                    <li><a href="#">Waterfalls</a></li>
+                    <li><a href="#">Window boxes</a></li>
+                    <li><a href="#">Yucca plants</a></li>
+                    <li><a href="#">Zzzzz – rest & recuperation</a></li>
+                </ul>
+            </div>
+            <div class="gc-quote-text">"No Job Is Too Small"</div>
+            <div class="gc-contact-info">
+                Mobile: 07928 080 408 <br>
+        Office Landline: 020 8343 2775
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- End Working Process -->
+    <!-- Start Services Section -->
+    <section>
+        <div class="container ">
+
+            <div class="cs_height_64 cs_height_lg_50"></div>
+            <div class="cs_card_1_group slider-wrapper">
+                <div class="services-slider" id="servicesSlider">
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed active wow fadeInLeft"
+                        data-src="./assets/garden-images/services/services/ser01.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Alpine Rockeries</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Add natural charm with Alpine Rockeries
+                                beautifully arranged stones and hardy plants that bring a mountain feel to any space.
+                                Low maintenance, timeless, and full of character.</p>
+                                <!-- <a href="#" class="cs_white_color">More</a> -->
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed"
+                        data-src="./assets/garden-images/services/services/ser02.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Arboricultural Services</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Enhance tree health and shape with expert
+                                crowning, coppicing, and pollarding. Our arboricultural care promotes growth, safety,
+                                and natural beauty keeping your green spaces thriving season after season.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed"
+                        data-src="./assets/garden-images/services/services/ser03.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Balcony Gardens</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Turn compact spaces into lush escapes. Our
+                                custom Balcony Gardens bring greenery, color, and serenity to your vertical living
+                                perfect for city life with a touch of nature.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser04.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Bedding In Season</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Keep your garden vibrant all year round with
+                                seasonal bedding. We plant fresh, colorful blooms tailored to each season bringing
+                                continuous beauty and harmony to your outdoor spaces.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser05.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Bulbs Seasonal Planting</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Enjoy bursts of color year after year with
+                                our expert bulbs seasonal planting. Carefully selected and timed, bulbs bring stunning
+                                blooms that brighten your garden through every season.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser06.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Cacti Indoor Displays</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Bring low maintenance greenery indoors with
+                                our stylish cacti displays. Perfect for adding texture and character, these resilient
+                                plants thrive in any indoor space, creating a modern, natural vibe.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser07.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Fencing</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Protect and define your garden with our
+                                expertly crafted fencing solutions. Combining durability and style, our fences enhance
+                                privacy while complementing the natural beauty of your outdoor space.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser08.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Fountains & Ponds</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Add tranquility and elegance with custom
+                                fountains and ponds. From gentle water features to serene garden ponds, we design and
+                                install elements that bring life, movement, and calm to your space.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser09.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Garden Clearance</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Refresh your outdoor space with our thorough
+                                garden clearance services. We remove overgrowth, debris, and unwanted clutter creating a
+                                clean, healthy foundation for your garden to flourish</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser10.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Garden Design & Layout</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Bring your vision to life with bespoke
+                                garden design and layout. From concept to creation, we craft spaces that balance beauty,
+                                function, and your unique style perfectly tailored to thrive year round.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser11.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Garden Maintenance</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Keep your garden thriving with regular care.
+                                From pruning to lawn care, we provide reliable maintenance that ensures your green space
+                                stays healthy, neat, and beautiful all year round.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser12.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Gazebos</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Add charm and shelter to your garden with
+                                custom gazebos. Perfect for relaxation or outdoor gatherings, our structures blend
+                                seamlessly into your landscape creating a stylish, shaded retreat.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser13.png">
+                        <div class="cs_card_top">
+                            <!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32"> Herb & Kitchen Gardens</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Grow fresh, flavorful produce right at home.
+                                Our tailored herb and kitchen gardens combine beauty with practicality bringing organic
+                                herbs and vegetables to your doorstep in vibrant, easy to manage setups.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser14.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Indoor Plant Displays</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Elevate indoor spaces with curated plant
+                                displays for foyers, receptions, waiting areas, and rest zones. Our greenery brings
+                                calm, freshness, and a welcoming atmosphere perfect for enhancing both style and well
+                                being.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser15.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Japanese Garden Features</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Create a space of harmony and reflection
+                                with Japanese garden elements. From stone lanterns to koi ponds and raked gravel, we
+                                design tranquil settings inspired by timeless Zen traditions.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser16.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Landscaping To Designs</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Transform ideas into living landscapes. From
+                                initial concepts to full execution, we shape outdoor spaces with thoughtful design and
+                                expert landscaping bringing beauty, balance, and function to every garden.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser17.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Miniature Gardens</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Small in size, big on charm. Our miniature
+                                gardens bring creativity and greenery to tabletops, balconies, and compact spaces
+                                perfectly crafted with tiny plants, stones, and whimsical details.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser18.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Orchid Growing</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Grace your space with the elegance of
+                                orchids. We specialize in selecting, planting, and caring for these stunning blooms
+                                ensuring vibrant displays that thrive in homes, offices, or garden features.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser19.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Ponds Indoors & Outdoors</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Bring tranquility to any space with custom
+                                designed ponds. Whether for a peaceful garden corner or a striking indoor feature, our
+                                ponds add movement, life, and a soothing ambiance to your surroundings.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser20.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Rockeries Outdoors & Miniature Indoor</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Add natural texture and depth with our
+                                custom rockeries. From bold outdoor arrangements to delicate indoor miniatures, we blend
+                                stone, soil, and greenery to create striking, low maintenance focal points.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser21.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Succulents</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Perfect for modern living, our curated
+                                succulent displays bring beauty with minimal care. Ideal for homes, offices, and indoor
+                                accents these hardy plants add a fresh, sculptural touch to any space.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser22.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Turf Laying</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Achieve an instant, lush lawn with our
+                                expert turf laying services. We prepare, level, and install high quality turf for a
+                                flawless, green finish perfect for homes, gardens, and outdoor spaces.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser23.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Tree Felling & Stump Extractions</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Ensure safety and reclaim space with our
+                                expert tree felling and stump removal services. We handle each job with precision and
+                                care leaving your landscape clean, clear, and ready for new growth.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="cs_card service-card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed wow fadeInRight"
+                        data-src="./assets/garden-images/services/services/ser24.png">
+                        <div class="cs_card_top">
+<!-- <div class="cs_card_tags">
+                                <a href="#" class="cs_card_tag">Home</a>
+                                <a href="#" class="cs_card_tag">Garden</a>
+                                <a href="#" class="cs_card_tag">Landscape Design</a>
+                                <a href="#" class="cs_card_tag">Expert</a>
+                            </div> -->
+                        </div>
+                        <div class="cs_card_bottom">
+                            <h2 class="cs_card_title cs_white_color cs_fs_32">Window Boxes</h2>
+                            <p class="cs_card_subtitle mb-0 cs_white_color">Add charm and color to your windows with
+                                custom planted window boxes. Designed for beauty and easy care, they bring seasonal
+                                blooms and greenery right to your view enhancing any home or workspace.</p>
+                                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp"
+                                    style="visibility: visible; animation-name: fadeInUp;">More</a>
+                        </div>
+                        <a href="#" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="prev-btn" id="prevBtn">‹</button>
+                </div>
+                <div class="navigation-controls next-btn" style="right: 0;">
+                    <button class="next-btn" id="nextBtn">›</button>
+                </div>
+            </div>
+
+            <!-- Slider Indicators -->
+            <div class="slider-indicators" id="sliderIndicators"></div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End Services Section -->
+
+
+
+    <section class="alpine-services-wrapper">
+        <div class="alpine-services-container">
+            <div class="cs_section_heading cs_style_2">
+                <h2 class="cs_section_title cs_white_color cs_fs_80 mb-0 wow fadeInUp">CRAFTED WITH CARE,
+                    <span>INSPIRED</span> BY NATURE</h2>
+                <div class="cs_section_right">
+                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 cs_white_color">LEST"S START NOW</h3>
+                </div>
+            </div>
+
+            <div class="alpine-services-grid">
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Arboricultural Services</h3>
+                    <p class="alpine-service-description">Professional tree care including crowning, coppicing, and
+                        pollarding to maintain healthy, beautiful trees in your landscape.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Balcony Gardens</h3>
+                    <p class="alpine-service-description">Transform your balcony into a green oasis with custom-designed
+                        container gardens and vertical planting solutions.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Seasonal Bedding & Bulbs</h3>
+                    <p class="alpine-service-description">Vibrant seasonal displays and strategic bulb planting to
+                        ensure year-round color and interest in your garden.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fa-solid fa-holly-berry"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Cacti & Succulents</h3>
+                    <p class="alpine-service-description">Stunning indoor displays and drought-resistant outdoor
+                        arrangements featuring diverse cacti and succulent varieties.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Fencing & Structures</h3>
+                    <p class="alpine-service-description">Quality fencing solutions and garden structures including
+                        gazebos to define and enhance your outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fa-solid fa-volcano"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Water Features</h3>
+                    <p class="alpine-service-description">Beautiful fountains and ponds, both indoor and outdoor, to add
+                        tranquility and natural beauty to your environment.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Garden Clearance & Maintenance</h3>
+                    <p class="alpine-service-description">Complete garden clearance services and ongoing maintenance to
+                        keep your outdoor spaces pristine year-round.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Garden Design & Landscaping</h3>
+                    <p class="alpine-service-description">Professional garden design and layout services, plus expert
+                        landscaping to bring your vision to life.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Herb & Kitchen Gardens</h3>
+                    <p class="alpine-service-description">Functional and beautiful herb gardens and kitchen gardens to
+                        provide fresh ingredients right at your doorstep.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Indoor Plant Displays</h3>
+                    <p class="alpine-service-description">Professional indoor plant arrangements for foyers, offices,
+                        waiting areas, and rest areas to enhance any interior space.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-torii-gate"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Japanese Garden Features</h3>
+                    <p class="alpine-service-description">Authentic Japanese garden elements and miniature gardens to
+                        create peaceful, zen-inspired outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Alpine Rockeries</h3>
+                    <p class="alpine-service-description">Stunning outdoor rockeries and miniature indoor rock gardens
+                        featuring carefully selected alpine plants and stone arrangements.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Orchid Growing</h3>
+                    <p class="alpine-service-description">Specialized orchid cultivation and display services for these
+                        exotic and elegant flowering plants.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fa-solid fa-clover"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Turf Laying</h3>
+                    <p class="alpine-service-description">Professional turf installation to create perfect lawns and
+                        grassed areas for your outdoor spaces.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Tree Felling & Stump Extraction</h3>
+                    <p class="alpine-service-description">Safe and efficient tree removal and stump extraction services
+                        to clear and prepare your landscape.</p>
+                </div>
+
+                <div class="alpine-service-card alpine-fade-in">
+                    <div class="alpine-service-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h3 class="alpine-service-name">Window Boxes</h3>
+                    <p class="alpine-service-description">Charming window box displays to add color and life to your
+                        home's exterior and create curb appeal.</p>
+                </div>
+            </div>
+
+            <div class="alpine-services-cta alpine-fade-in">
+                <a href="#" class="alpine-cta-button">
+                    <i class="fas fa-calendar-alt"></i>
+                    Get Service Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="cs_section_heading cs_style_2 cs_color_1">
+                <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInDown">GET TO <span>KNOW</span> OUR <br>LATEST GARDEN
+                    <span>WORKS</span></h2>
+                <div class="cs_section_right">
+                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">WORKS</h3>
+                </div>
+            </div>
+            <div class="cs_height_64 cs_height_lg_50"></div>
+            <div class="cs_full_width_slider_section">
+                <div class="cs_slider cs_style_1 cs_slider_gap_24">
+                    <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
+                        data-variable-width="1" data-slides-per-view="1">
+                        <div class="cs_slider_wrapper">
+                            <div class="cs_slide">
+                                <div class="cs_card cs_style_4">
+
+                                    <div class="cs_card_thumb cs_bg_filed cs_mb_40"
+                                        data-src="./assets/garden-images/projectone.png"></div>
+                                    <div class="cs_card_info">
+                                        <ul class="cs_card_info_list cs_mp_0">
+                                            <li>
+                                                <p class="mb-0">NAME</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Project Name</h3>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">LOCATION</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Loaction Name</h3>
+                                            </li>
+                                        </ul>
+                                        <div class="cs_card_text">Project Detail Here.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs_slide">
+                                <div class="cs_card cs_style_4">
+
+                                    <div class="cs_card_thumb cs_bg_filed cs_mb_40"
+                                        data-src="./assets/garden-images/GardenClearance.png"></div>
+                                    <div class="cs_card_info">
+                                        <ul class="cs_card_info_list cs_mp_0">
+                                            <li>
+                                                <p class="mb-0">NAME</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Project Name</h3>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">LOCATION</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Location Name</h3>
+                                            </li>
+                                        </ul>
+                                        <div class="cs_card_text">Project Detail Here.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs_slide">
+                                <div class="cs_card cs_style_4">
+
+                                    <div class="cs_card_thumb cs_bg_filed cs_mb_40"
+                                        data-src="./assets/garden-images/TurfLaying.png"></div>
+                                    <div class="cs_card_info">
+                                        <ul class="cs_card_info_list cs_mp_0">
+                                            <li>
+                                                <p class="mb-0">NAME</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Project name</h3>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">LOCATION</p>
+                                                <h3 class="mb-0 cs_fs_20 cs_bold">Project Location</h3>
+                                            </li>
+                                        </ul>
+                                        <div class="cs_card_text">Project Detail Here.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cs_slider_arrows cs_style_3 cs_hide_lg">
+                        <div class="cs_right_arrow cs_heading_color cs_fs_20 cs_center">
+                            <span class="cs_center">NEXT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End Works Section -->
+    <!-- Start CTA Section -->
+    <section class="cs_cta cs_style_1 cs_heading_bg cs_bg_filed" data-src="assets/img/cta_bg.jpg">
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="cs_cta_in">
+                <h2 class="cs_cta_title cs_fs_80 cs_white_color cs_mb_40 wow fadeInDown">READY TO TRANSFORM <br>YOUR GARDEN?
+                </h2>
+                <a href="#" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp">Contact Us</a>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End CTA Section -->
+    <div class="cs_height_100 cs_height_lg_70"></div>
+    
+
+    <div id="footer-container"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+
+    <!--<footer class="cs_footer cs_style_1 cs_color_1">
+      <div class="container">
+        <div class="cs_footer_row">
+          <div class="cs_footer_col">
+            <div class="cs_footer_widget">
+              <div class="cs_text_widget">
+                <img src="assets/garden-images/garden-new-logo.png" class="footer-logo" alt="">
+                <p>Stay updated with our latest <br>
+                  projects and gardening tips.</p>
+              </div>
+            </div>
+            <div class="cs_footer_widget">
+              <form action="#" class="cs_newsletter cs_style_1">
+                <input type="email" placeholder="Enter your email address ..." class="cs_newsletter_input">
+                <button type="submit" class="cs_newsletter_btn cs_arrow_btn cs_white_bg cs_heading_color">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z" fill="currentColor"/>
+                  </svg>                    
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="cs_footer_col">
+            <div class="cs_footer_widget">
+              <h4 class="cs_footer_widget_title">SUPPORT</h4>
+              <ul class="cs_footer_widget_menu cs_mp_0">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">USER GUIDE</a></li>
+                <li><a href="#">TESTIMONIAL</a></li>
+                <li><a href="#">CUSTOMER</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="cs_footer_col">
+            <div class="cs_footer_widget">
+              <h4 class="cs_footer_widget_title">LINKS</h4>
+              <ul class="cs_footer_widget_menu cs_mp_0">
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#">BLOG</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="cs_footer_col">
+            <div class="cs_footer_widget">
+              <h4 class="cs_footer_widget_title">SERVICES</h4>
+              <ul class="cs_footer_widget_menu cs_mp_0">
+                <li><a href="#">HOME GARDEN</a></li>
+                <li><a href="#">PLANT SELECTION</a></li>
+                <li><a href="#">HARDSCAPING</a></li>
+                <li><a href="#">PUBLIC GARDEN</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cs_bottom_footer">
+          <div class="cs_bottom_footer_left">
+            <div class="cs_copyright">Copyright © 2025 All Rights Reserved By <a href="https://thevisionbrands.com" style="color: rgb(255, 255, 255); cursor: pointer;" contenteditable="false"><b>The Vision Brands</b></a></div>
+          </div>
+          <div class="cs_bottom_footer_right">
+            <ul class="cs_footer_links cs_mp_0">
+              <li>
+                <a href="#">PRIVACY POLICY</a>
+              </li>
+              <li>
+                <a href="#">TERMS & CONDITION</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>-->
+
+    <!-- Script -->
+    <script>
+        // Enhanced fade in animation on scroll
+        const alpineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('alpine-visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.alpine-fade-in').forEach(el => {
+            alpineObserver.observe(el);
+        });
+
+        // Add staggered animation delay for service cards
+        document.querySelectorAll('.alpine-service-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.05}s`;
+            card.style.animationDelay = `${(index * 0.1) - 2}s`;
+        });
+
+        // Enhanced card click interaction with ripple effect
+        document.querySelectorAll('.alpine-service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: radial-gradient(circle, rgba(45, 80, 22, 0.1) 0%, transparent 70%);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Add CSS animation keyframes if not already added
+                if (!document.querySelector('#ripple-keyframes')) {
+                    const style = document.createElement('style');
+                    style.id = 'ripple-keyframes';
+                    style.textContent = `
+                        @keyframes ripple {
+                            to {
+                                transform: scale(2);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                // Remove ripple after animation
+                setTimeout(() => {
+                    if (ripple.parentNode) {
+                        ripple.parentNode.removeChild(ripple);
+                    }
+                }, 600);
+                
+                // Card pulse effect
+                this.style.transform = 'translateY(-12px) scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Enhanced smooth scroll for CTA button with easing
+        document.querySelector('.alpine-cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add button press animation
+            this.style.transform = 'translateY(-3px) scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // Scroll to contact section (you can modify this)
+            console.log('Contact button clicked - integrate with your contact section');
+            
+            // Optional: Add a subtle page shake effect
+            document.body.style.animation = 'shake 0.3s ease-in-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 300);
+        });
+
+        // Add shake animation keyframes
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-2px); }
+                75% { transform: translateX(2px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
+
+        // Parallax effect for background
+        // window.addEventListener('scroll', () => {
+        //     const scrolled = window.pageYOffset;
+        //     const wrapper = document.querySelector('.alpine-services-wrapper');
+        //     if (wrapper) {
+        //         wrapper.style.transform = `translateY(${scrolled * 0.1}px)`;
+        //     }
+        // });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+    <script>
+        class ServiceSlider {
+    constructor() {
+        this.slider = document.getElementById('servicesSlider');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.indicators = document.getElementById('sliderIndicators');
+        
+        this.cards = document.querySelectorAll('.service-card');
+        this.currentIndex = 0;
+        this.cardsPerView = this.getCardsPerView();
+        this.maxIndex = Math.max(0, this.cards.length - this.cardsPerView);
+        
+        this.init();
+    }
+    
+    getCardsPerView() {
+        const width = window.innerWidth;
+        if (width <= 576) return 1;      // Mobile: 1 card
+        if (width <= 768) return 2;      // Small tablet: 2 cards
+        if (width <= 1024) return 3;     // Tablet/small desktop: 3 cards
+        return 4;                        // Desktop: 4 cards
+    }
+    
+    getCardWidth() {
+        const width = window.innerWidth;
+        const gap = 20;
+        
+        if (width <= 576) {
+            return `calc(100% - ${gap}px)`;
+        } else if (width <= 768) {
+            return `calc(50% - ${gap}px)`;
+        } else if (width <= 1024) {
+            return `calc(38.111% - ${gap}px)`;
+        } else if (width <= 1090) {
+            return `calc(30.555% - ${gap}px)`;
+        } else if (width <= 1160) {
+            return `calc(30.111% - ${gap}px)`;
+        } else if (width <= 1250) {
+            return `calc(29.699% - ${gap}px)`;
+        } else if (width <= 1300) {
+            return `calc(29.444% - ${gap}px)`;
+        } else if (width <= 1380) {
+            return `calc(29.222% - ${gap}px)`;
+        } else if (width <= 1450) {
+            return `calc(29.010% - ${gap}px)`;
+        } else if (width <= 1550) {
+            return `calc(28.888% - ${gap}px)`;
+        }else if (width <= 1650) {
+            return `calc(28.444% - ${gap}px)`;
+        } else if (width <= 1800) {
+            return `calc(28.222% - ${gap}px)`;
+        }
+         else {
+            return `calc(27.888% - ${gap}px)`;
+        }
+    }
+    
+    init() {
+        this.setBackgroundImages();
+        this.setupSlider();
+        this.createIndicators();
+        this.updateSlider();
+        this.bindEvents();
+    }
+    
+    setBackgroundImages() {
+        this.cards.forEach(card => {
+            const imageSrc = card.getAttribute('data-src');
+            if (imageSrc) {
+                card.style.backgroundImage = `url('${imageSrc}')`;
+                card.style.backgroundSize = 'cover';
+                card.style.backgroundPosition = 'center';
+                card.style.backgroundRepeat = 'no-repeat';
+            }
+        });
+    }
+    
+setupSlider() {
+    // Set up slider container
+    this.slider.style.cssText = `
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 20px;
+        width: 100%;
+    `;
+
+    // Set min-width based on screen width - FIXED: 100% for <= 767px
+    let minWidth;
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth <= 767) {
+        minWidth = '100%';  // Changed from 98% to 100% to show single card
+    } else if (screenWidth <= 992) {
+        minWidth = '50%';
+    } else {
+        minWidth = '0%'; // for > 991px
+    }
+    // Set up each card
+    const cardWidth = this.getCardWidth();
+    this.cards.forEach(card => {
+        card.style.cssText += `
+            flex: 0 0 ${cardWidth};
+            min-width: ${minWidth};
+            display: flex;
+        `;
+    });
+}
+    createIndicators() {
+        if (!this.indicators) return;
+        
+        this.indicators.innerHTML = '';
+        
+        // Only create indicators if we have more slides than visible cards
+        if (this.maxIndex <= 0) {
+            this.indicators.style.display = 'none';
+            return;
+        }
+        
+        this.indicators.style.display = 'block';
+        
+        for (let i = 0; i <= this.maxIndex; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            indicator.style.cssText = `
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                display: inline-block;
+            `;
+            indicator.addEventListener('click', () => this.goToSlide(i));
+            this.indicators.appendChild(indicator);
+        }
+        
+        this.indicators.style.cssText += `
+            text-align: center;
+            margin-top: 20px;
+        `;
+    }
+    
+updateSlider() {
+    let cardWidth;
+
+    if (window.innerWidth <= 767) {
+        cardWidth = 100; 
+    } else if (window.innerWidth <= 770) {
+        cardWidth = 47.8; 
+    }
+     else if (window.innerWidth <= 850) {
+        cardWidth = 48.5; 
+    }  else if (window.innerWidth <= 991) {
+        cardWidth = 49.5; 
+    } else {
+        cardWidth = 100 / this.cardsPerView; 
+    }
+
+    // Calculate gap as percentage
+    const gap = (20 * this.cardsPerView) / window.innerWidth * 100;
+    const translateX = -(this.currentIndex * (cardWidth + gap));
+
+    this.slider.style.transform = `translateX(${translateX}%)`;
+
+    this.updateIndicators();
+    this.updateNavButtons();
+}
+
+    
+    updateIndicators() {
+        if (!this.indicators) return;
+        
+        const indicators = this.indicators.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.style.backgroundColor = index === this.currentIndex ? '#333' : '#ccc';
+        });
+    }
+    
+    updateNavButtons() {
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.currentIndex === 0;
+            this.prevBtn.style.opacity = this.prevBtn.disabled ? '0.5' : '1';
+            this.prevBtn.style.cursor = this.prevBtn.disabled ? 'not-allowed' : 'pointer';
+        }
+        
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
+            this.nextBtn.style.opacity = this.nextBtn.disabled ? '0.5' : '1';
+            this.nextBtn.style.cursor = this.nextBtn.disabled ? 'not-allowed' : 'pointer';
+        }
+    }
+    
+    nextSlide() {
+        if (this.currentIndex < this.maxIndex) {
+            this.currentIndex++;
+            this.updateSlider();
+        }
+    }
+    
+    prevSlide() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateSlider();
+        }
+    }
+    
+    goToSlide(index) {
+        if (index >= 0 && index <= this.maxIndex) {
+            this.currentIndex = index;
+            this.updateSlider();
+        }
+    }
+    
+    handleResize() {
+        const newCardsPerView = this.getCardsPerView();
+        
+        if (newCardsPerView !== this.cardsPerView) {
+            this.cardsPerView = newCardsPerView;
+            this.maxIndex = Math.max(0, this.cards.length - this.cardsPerView);
+            
+            // Adjust current index if it's now out of bounds
+            if (this.currentIndex > this.maxIndex) {
+                this.currentIndex = this.maxIndex;
+            }
+            
+            // Re-setup slider with new dimensions
+            this.setupSlider();
+            this.createIndicators();
+            this.updateSlider();
+        }
+    }
+    
+    bindEvents() {
+        // Navigation buttons
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.nextSlide();
+            });
+        }
+        
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.prevSlide();
+            });
+        }
+        
+        // Window resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => this.handleResize(), 250);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.nextSlide();
+            }
+        });
+        
+        // Touch/swipe support
+        this.addTouchSupport();
+    }
+    
+    addTouchSupport() {
+        let startX = 0;
+        let startY = 0;
+        let endX = 0;
+        let endY = 0;
+        
+        this.slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        this.slider.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+            
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Check if horizontal swipe is more significant than vertical
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                e.preventDefault();
+                if (diffX > 0) {
+                    this.nextSlide(); // Swipe left - next slide
+                } else {
+                    this.prevSlide(); // Swipe right - previous slide
+                }
+            }
+        }, { passive: false });
+    }
+}
+
+// Initialize slider when DOM is ready
+function initializeSlider() {
+    if (document.getElementById('servicesSlider')) {
+        new ServiceSlider();
+    }
+}
+
+// Multiple initialization methods to ensure it works
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSlider);
+} else {
+    initializeSlider();
+}
+
+// Fallback initialization
+setTimeout(initializeSlider, 100);
+
+    </script>
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery.slick.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/isotope.pkg.min.js"></script>
+    <script src="assets/js/lightgallery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9434b82e4fe8a07f',t:'MTc0NzgzNzI3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../cdn-cgi/challenge-platform/h/g/scripts/jsd/6fab0cec561d/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    </script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon='{"rayId":"9434b82e4fe8a07f","version":"2025.4.0-1-g37f21b1","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"6f756f02820545e3be40ddc6eb6154c3","b":1}'
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
