@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Laralink">
+    <!-- Favicon Icon -->
+    <link rel="icon" href="assets/img/favicon.png">
+    <!-- Site Title -->
+    <title>Garden Care</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="cs_preloader_text">Loading...</div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header Section -->
+    <div id="navbar-container"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+        });
+    </script>
+    <div class="cs_header_form_wrap cs_center">
+      <div class="cs_header_form_overlay"></div>
+      <form action="#" class="cs_header_form">
+        <input type="text" class="cs_header_form_input" placeholder="Search...">
+        <button type="button" class="cs_header_form_btn cs_center">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <path d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.8 15.8332 7.91669C15.8332 3.55174 12.2815 9.15527e-05 7.91656 9.15527e-05C3.55161 9.15527e-05 0 3.5517 0 7.91666C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.1699 12.8899 14.0683L18.5773 19.7557C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7557C20.0815 19.4299 20.0815 18.9032 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91666C1.66666 4.47001 4.46996 1.66672 7.9166 1.66672C11.3632 1.66672 14.1665 4.47001 14.1665 7.91666C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z" fill="currentColor"/>
+            </g>
+            <defs>
+            <clipPath>
+            <rect width="20" height="20" fill="currentColor"/>
+            </clipPath>
+            </defs>
+          </svg>                    
+        </button>
+      </form>
+    </div>
+    <!-- End Header Section -->
+    <!-- Start Page Heading Sectoin -->
+    <section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg" data-src="assets/img/gallerybanner.jpg">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Tools & Implements</li>
+        </ol>
+        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">Tools & Implements</h1>
+      </div>
+    </section>
+    <!-- End Page Heading Sectoin -->
+
+    <style>
+       
+        .tools-section {
+            /* background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%); */
+            padding: 80px 20px;
+        }
+
+        .tools-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tools-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tools-section .section-title {
+    font-size: 2.8em;
+    color: #2d5016;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.tools-section .section-subtitle {
+    font-size: 1.2em;
+    color: #558b2f;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.tools-section .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tools-section .tool-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(45, 80, 22, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.tools-section .tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(45, 80, 22, 0.2);
+    border-color: #7cb342;
+}
+
+.tools-section .tool-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #7cb342 0%, #558b2f 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.tools-section .tool-title {
+    font-size: 1.5em;
+    color: #2d5016;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.tools-section .tool-description {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.tools-section .tool-features {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.tools-section .tool-features li {
+    padding: 8px 0;
+    color: #558b2f;
+    font-size: 0.95em;
+    position: relative;
+    padding-left: 25px;
+}
+
+.tools-section .tool-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #7cb342;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.tools-section .cta-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.tools-section .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #7cb342 0%, #558b2f 100%);
+    color: white;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(124, 179, 66, 0.3);
+}
+
+.tools-section .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.4);
+    background: linear-gradient(135deg, #8bc34a 0%, #689f38 100%);
+}
+
+.tools-section .quality-banner {
+    background: linear-gradient(135deg, #2d5016 0%, #558b2f 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.tools-section .quality-banner h3 {
+        font-size: 35px;
+    margin-bottom: 22px;
+    color: white;
+}
+
+.tools-section .quality-banner p {
+    font-size: 1.1em;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .tools-section .section-title {
+        font-size: 2em;
+    }
+
+    .tools-section .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tools-section {
+        padding: 50px 15px;
+    }
+}
+
+    </style>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tools & Implements</h2>
+                <p class="section-subtitle">Professional-grade garden tools and equipment to help you maintain and cultivate your perfect outdoor space with precision and ease.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🌿</div>
+                    <h3 class="tool-title">Hand Tools Collection</h3>
+                    <p class="tool-description">Essential hand tools crafted for precision gardening work, from delicate pruning to soil cultivation.</p>
+                    <ul class="tool-features">
+                        <li>Premium pruning shears and secateurs</li>
+                        <li>Ergonomic trowels and hand forks</li>
+                        <li>Professional weeding tools</li>
+                        <li>Durable garden gloves and accessories</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🔧</div>
+                    <h3 class="tool-title">Power Equipment</h3>
+                    <p class="tool-description">Modern motorized equipment designed for efficiency in maintaining larger gardens and landscapes.</p>
+                    <ul class="tool-features">
+                        <li>Professional-grade lawn mowers</li>
+                        <li>Hedge trimmers and brush cutters</li>
+                        <li>Electric and petrol-powered tools</li>
+                        <li>Leaf blowers and garden vacuums</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">💧</div>
+                    <h3 class="tool-title">Watering Systems</h3>
+                    <p class="tool-description">Comprehensive irrigation solutions to keep your garden hydrated and thriving throughout all seasons.</p>
+                    <ul class="tool-features">
+                        <li>Quality hoses and spray nozzles</li>
+                        <li>Drip irrigation systems</li>
+                        <li>Automatic sprinkler solutions</li>
+                        <li>Water timers and controllers</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🌱</div>
+                    <h3 class="tool-title">Cultivation Tools</h3>
+                    <p class="tool-description">Specialized implements for soil preparation, planting, and maintaining healthy garden beds.</p>
+                    <ul class="tool-features">
+                        <li>Spades, forks, and rakes</li>
+                        <li>Hoes and cultivators</li>
+                        <li>Wheelbarrows and garden carts</li>
+                        <li>Soil testing equipment</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">✂️</div>
+                    <h3 class="tool-title">Pruning & Shaping</h3>
+                    <p class="tool-description">Professional cutting tools for maintaining tree health and achieving beautiful plant shapes.</p>
+                    <ul class="tool-features">
+                        <li>Long-reach pruning saws</li>
+                        <li>Loppers and pole pruners</li>
+                        <li>Topiary shears</li>
+                        <li>Tree surgery equipment</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🛠️</div>
+                    <h3 class="tool-title">Maintenance Equipment</h3>
+                    <p class="tool-description">Essential tools for ongoing garden care and seasonal maintenance tasks.</p>
+                    <ul class="tool-features">
+                        <li>Lawn aerators and scarifiers</li>
+                        <li>Composting equipment</li>
+                        <li>Garden shredders</li>
+                        <li>Tool storage and organization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quality-banner">
+                <h3>Quality Tools for Quality Gardens</h3>
+                <p>At Garden Care, we use only professional-grade tools and equipment, ensuring every task is completed to the highest standard. Our experienced team is equipped with the right tools for every garden challenge, from delicate pruning to major landscaping projects.</p>
+            </div>
+
+            <div class="cta-container">
+                <a href="contact.html" class="cta-button">Consult with Our Experts</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div id="footer-container"></div>
+    <script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    </script>
+    <!-- End Footer Section -->
+    <!-- Script -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery.slick.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/isotope.pkg.min.js"></script>
+    <script src="assets/js/lightgallery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9434b8457811a07f',t:'MTc0NzgzNzI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../cdn-cgi/challenge-platform/h/g/scripts/jsd/6fab0cec561d/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9434b8457811a07f","version":"2025.4.0-1-g37f21b1","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"6f756f02820545e3be40ddc6eb6154c3","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>
